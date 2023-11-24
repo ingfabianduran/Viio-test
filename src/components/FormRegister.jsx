@@ -35,26 +35,24 @@ export default function FormRegister() {
         navigate('/products');
       }, 1000);
     }
-  })
+  });
 
   return (
     <Container component="main" maxWidth="xs">
       <Paper elevation={3} style={{ padding: 20, display: 'flex', flexDirection: 'column', alignItems: 'center', textAlign: 'center' }}>
-        <Typography variant="h5">Registrarse</Typography>
-        <form onSubmit={formik.handleSubmit} style={{ width: '100%', marginTop: 20 }}>
+        <Typography variant="h5" sx={{ fontWeight: 700 }}>REGISTRARSE</Typography>
+        <form autoComplete="off" onSubmit={formik.handleSubmit} style={{ width: '100%', marginTop: 20 }}>
           <TextField
             label="Nombre"
             type="text"
             name="firstName"
             variant="filled"
             margin="normal"
-            required
             fullWidth
-            autoFocus
             onChange={formik.handleChange}
             value={formik.values.firstName}
-            error={Boolean(formik.errors.firstName)} 
-            helperText={formik.errors.firstName}
+            helperText={formik.touched.firstName && formik.errors.firstName}
+            error={formik.touched.firstName && Boolean(formik.errors.firstName)}
           />
           <TextField
             label="Apellido"
@@ -62,12 +60,11 @@ export default function FormRegister() {
             name="lastName"
             variant="filled"
             margin="normal"
-            required
             fullWidth
             onChange={formik.handleChange}
             value={formik.values.lastName}
-            error={Boolean(formik.errors.lastName)} 
-            helperText={formik.errors.lastName}
+            helperText={formik.touched.lastName && formik.errors.lastName}
+            error={formik.touched.lastName && Boolean(formik.errors.lastName)}
           />
           <TextField
             label="Correo electrónico"
@@ -75,12 +72,11 @@ export default function FormRegister() {
             name="email"
             variant="filled"
             margin="normal"
-            required
             fullWidth
             onChange={formik.handleChange}
             value={formik.values.email}
-            error={Boolean(formik.errors.email)} 
-            helperText={formik.errors.email}
+            helperText={formik.touched.email && formik.errors.email}
+            error={formik.touched.email && Boolean(formik.errors.email)}
           />
           <TextField
             label="Contraseña"
@@ -88,12 +84,11 @@ export default function FormRegister() {
             name="password"
             variant="filled"
             margin="normal"
-            required
             fullWidth
             onChange={formik.handleChange}
             value={formik.values.password}
-            error={Boolean(formik.errors.password)} 
-            helperText={formik.errors.password}
+            helperText={formik.touched.password && formik.errors.password}
+            error={formik.touched.password && Boolean(formik.errors.password)}
           />
           <Button type="submit" variant="contained" color="primary" fullWidth style={{ marginTop: 20 }}>
             Registrarse

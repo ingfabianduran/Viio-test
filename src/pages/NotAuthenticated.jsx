@@ -12,7 +12,7 @@ export default function NotAuthenticated() {
 
   return (
     <Box sx={{ display: 'flex', flexDirection: 'column', textAlign: 'center' }}>
-      <Typography variant="h4" gutterBottom>Usuario no autenticado</Typography>
+      <Typography variant="h4" gutterBottom sx={{ fontWeight: 700 }}>Usuario no autenticado</Typography>
       <Button variant="text" onClick={redirectToLogin}>Iniciar sesión</Button>
     </Box>
   )

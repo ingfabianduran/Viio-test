@@ -2,9 +2,9 @@ import { TextField, Button, Paper, Typography, Container } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
 import { useFormik } from 'formik';
 import { userLogged } from '../validations/schemasValidations';
-import axios from 'axios';
 import { userStore, loadingStore } from '../store/store';
 import { showAlert } from '../services/alerts';
+import axios from 'axios';
 
 export default function FormLogin() {
   const navigate = useNavigate();
@@ -47,7 +47,7 @@ export default function FormLogin() {
   return (
     <Container component="main" maxWidth="xs">
       <Paper elevation={3} style={{ padding: 20, display: 'flex', flexDirection: 'column', alignItems: 'center', textAlign: 'center' }}>
-        <Typography variant="h5">Iniciar sesión</Typography>
+        <Typography variant="h5" sx={{ fontWeight: 700 }}>INICIAR SESIÓN</Typography>
         <form onSubmit={formik.handleSubmit} style={{ width: '100%', marginTop: 20 }}>
           <TextField
             label="Correo electrónico"
@@ -55,25 +55,22 @@ export default function FormLogin() {
             name="email"
             variant="filled"
             margin="normal"
-            required
             fullWidth
-            autoFocus
             onChange={formik.handleChange}
             value={formik.values.email}
-            error={Boolean(formik.errors.email)}
-            helperText={formik.errors.email} />
+            helperText={formik.touched.email && formik.errors.email}
+            error={formik.touched.email && Boolean(formik.errors.email)}/>
           <TextField
             label="Contraseña"
             type="password"
             name="password"
             variant="filled"
             margin="normal"
-            required
             fullWidth
             onChange={formik.handleChange}
             value={formik.values.password}
-            error={Boolean(formik.errors.password)}
-            helperText={formik.errors.password} />
+            helperText={formik.touched.password && formik.errors.password}
+            error={formik.touched.password && Boolean(formik.errors.password)} />
           <Button type="submit" variant="contained" color="primary" fullWidth style={{ marginTop: 20 }}>
             Iniciar sesión
           </Button>

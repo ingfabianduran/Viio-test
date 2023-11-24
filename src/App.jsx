@@ -25,7 +25,7 @@ export default function App() {
       <Backdrop
         open={loading}
         sx={{ color: '#fff', zIndex: (theme) => theme.zIndex.drawer + 1 }}>
-        <CircularProgress color="inherit" />
+        <CircularProgress size={65} color="inherit" />
       </Backdrop>
     </>
   );
