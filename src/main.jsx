@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { createRoot } from 'react-dom/client';
 import App from './App';
-import { BrowserRouter } from 'react-router-dom';
+import { HashRouter } from 'react-router-dom';
 import theme from './theme';
 import { ThemeProvider, Container, Box, CssBaseline } from '@mui/material';
 import Navigation from './components/Navigation';
@@ -11,7 +11,7 @@ const rootElement = document.getElementById('root');
 const root = createRoot(rootElement);
 
 root.render(
-  <BrowserRouter>
+  <HashRouter>
     <ThemeProvider theme={theme}>
       <Navigation />
       <Container component="main" maxWidth="xl" style={{ minHeight: '80vh', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
@@ -21,5 +21,5 @@ root.render(
         </Box>
       </Container>
     </ThemeProvider>
-  </BrowserRouter>
+  </HashRouter>
 );
