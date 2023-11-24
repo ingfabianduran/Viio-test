@@ -4,7 +4,7 @@ import { useFormik } from 'formik';
 import { userLogged } from '../validations/schemasValidations';
 import { userStore, loadingStore } from '../store/store';
 import { showAlert } from '../services/alerts';
-import axios from 'axios';
+import { users } from '../database/users';
 
 export default function FormLogin() {
   const navigate = useNavigate();
@@ -29,18 +29,16 @@ export default function FormLogin() {
     */
     onSubmit: (values) => {
       setLoading();
-      axios.get('src/database/users.json').then(users => {
-        const findUser = users.data.users.find(user => user.email === values.email && user.password === values.password);
-        setTimeout(() => {
-          setLoading();
-          if (findUser) {
-            logIn(findUser);
-            navigate('/products');
-          } else {
-            showAlert({ title: 'Error', text: 'Usuario o contraseña incorrecta', icon: 'error' });
-          }
-        }, 1000);
-      });
+      const findUser = users.find(user => user.email === values.email && user.password === values.password);
+      setTimeout(() => {
+        setLoading();
+        if (findUser) {
+          logIn(findUser);
+          navigate('/products');
+        } else {
+          showAlert({ title: 'Error', text: 'Usuario o contraseña incorrecta', icon: 'error' });
+        }
+      }, 1000);
     }
   });
 
@@ -59,7 +57,7 @@ export default function FormLogin() {
             onChange={formik.handleChange}
             value={formik.values.email}
             helperText={formik.touched.email && formik.errors.email}
-            error={formik.touched.email && Boolean(formik.errors.email)}/>
+            error={formik.touched.email && Boolean(formik.errors.email)} />
           <TextField
             label="Contraseña"
             type="password"
