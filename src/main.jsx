@@ -5,6 +5,7 @@ import { BrowserRouter } from 'react-router-dom';
 import theme from './theme';
 import { ThemeProvider, Container, Box, CssBaseline } from '@mui/material';
 import Navigation from './components/Navigation';
+import './styles.css';
 
 const rootElement = document.getElementById('root');
 const root = createRoot(rootElement);
