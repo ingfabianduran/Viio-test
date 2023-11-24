@@ -68,7 +68,7 @@ export default function FormRegister() {
           />
           <TextField
             label="Correo electrónico"
-            type="email"
+            type="text"
             name="email"
             variant="filled"
             margin="normal"
