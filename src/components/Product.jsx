@@ -48,7 +48,7 @@ export default function Product({ product, showDetails = false }) {
           !showDetails ?
             <Button size="small" onClick={() => handleClickRedirect(product.id)}>Ver detalles</Button>
             :
-            <Button variant='contained' color='warning' endIcon={<ShoppingCart />} onClick={() => handleClickBuy(product)}>Comprar producto</Button>
+            <Button variant='contained' color='secondary' endIcon={<ShoppingCart />} onClick={() => handleClickBuy(product)}>Comprar producto</Button>
         }
       </CardActions>
     </Card>

@@ -5,6 +5,7 @@ export const showAlert = ({ title = 'Correcto', text, icon = 'success' }) => {
     title,
     text,
     icon,
+    confirmButtonColor: '#344955',
   });
 };
 
@@ -14,8 +15,8 @@ export const showConfirmAlert = ({ title = '¿Está seguro?', text = '¿De conti
     text,
     icon,
     showCancelButton: true,
-    confirmButtonColor: '#3085d6',
-    cancelButtonColor: '#d33',
+    confirmButtonColor: '#344955',
+    cancelButtonColor: '#f9aa33',
     confirmButtonText: 'Si',
   });
 };
